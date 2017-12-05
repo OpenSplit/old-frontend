@@ -1,3 +1,17 @@
-<p>
-  api works!
-</p>
+<div>
+    <label>name:
+      <input [(ngModel)]="user.name">  <button (click)="registerUser(user)">{{user.name}}</button>
+    </label>
+</div>
+
+<div>
+    <label>name:
+      <input [(ngModel)]="user.id">  <button (click)="getToken(user)">{{user.id}}</button>
+    </label>
+</div>
+
+<div>
+    <label>name:
+      <input [(ngModel)]="user.token">  <button (click)="getToken(user)">{{user.token}}</button>
+    </label>
+</div>
