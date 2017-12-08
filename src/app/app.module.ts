@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule, MatToolbarModule } from '@angular/material';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
+
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -23,6 +25,7 @@ import { AuthService } from './services/auth.service'
     FormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HttpModule,
     MatSidenavModule,
     MatToolbarModule,
     RouterModule.forRoot([
