@@ -10,6 +10,7 @@ import { User } from '../../models/user'
 })
 export class LoginComponent {
   user: User = new User()
+  token: String = "";
 
   constructor(private auth: AuthService) { }
 
@@ -17,6 +18,16 @@ export class LoginComponent {
     this.auth.login(this.user)
     .then((user) => {
       console.log(user.json());
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }
+
+  onToken(token: String): void {
+    this.auth.tokenLogin(token)
+    .then((apikey) => {
+      console.log(apikey);
     })
     .catch((err) => {
       console.log(err);
