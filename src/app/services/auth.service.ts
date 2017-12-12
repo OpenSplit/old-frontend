@@ -22,7 +22,17 @@ export class AuthService {
   }
 
   register(user): Promise<any> {
-    let url: string = `${this.BASE_URL}/register`;
+    let url: string = `${this.BASE_URL}/user`;
     return this.http.post(url, user, {headers: this.headers}).toPromise();
   }
+
+  ensureAuthenticated(session_key): Promise<any> {
+    let url: string = `${this.BASE_URL}/user`;
+    let headers: Headers = new Headers({
+      'Content-Type': 'application/json',
+      Authorization: `${session_key}`
+    });
+    return this.http.get(url, {headers: headers}).toPromise();
+  }
+
 }

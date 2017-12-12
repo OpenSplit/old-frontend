@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 
 import { User } from '../../models/user'
@@ -10,7 +10,7 @@ import { User } from '../../models/user'
 })
 export class LoginComponent {
   user: User = new User()
-  token: String = "";
+  token: String = ""
 
   constructor(private auth: AuthService) { }
 
@@ -26,8 +26,8 @@ export class LoginComponent {
 
   onToken(token: String): void {
     this.auth.tokenLogin(token)
-    .then((apikey) => {
-      console.log(apikey);
+    .then((user) => {
+      localStorage.setItem('session_key', user.json().session_key);
     })
     .catch((err) => {
       console.log(err);
