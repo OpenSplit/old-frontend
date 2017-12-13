@@ -6,7 +6,11 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 // Material Design Imports
-import { MatSidenavModule, MatToolbarModule } from '@angular/material';
+import {
+  MatSidenavModule,
+  MatToolbarModule,
+  MatInputModule
+} from '@angular/material';
 import { MatButtonModule } from '@angular/material/button';
 
 // Component Imports
@@ -17,7 +21,8 @@ import { MainComponent } from './components/main/main.component'
 
 // Service Imports
 import { AuthService } from './services/auth.service';
-
+import { EnsureAuthenticated } from './services/ensure-authenticated.service';
+import { LoginRedirect } from './services/login-redirect.service';
 
 @NgModule({
   declarations: [
@@ -34,13 +39,19 @@ import { AuthService } from './services/auth.service';
     HttpModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatButtonModule,
+    MatInputModule,
     RouterModule.forRoot([
-      { path: '', component: MainComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent }
+      { path: '', component: MainComponent, canActivate: [EnsureAuthenticated] },
+      { path: 'login', component: LoginComponent, canActivate: [LoginRedirect] },
+      { path: 'register', component: RegisterComponent, canActivate: [LoginRedirect] }
     ])
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    EnsureAuthenticated,
+    LoginRedirect
+  ],
   bootstrap: [AppComponent]
 })
 
