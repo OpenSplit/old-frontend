@@ -48,6 +48,7 @@ import { LoginRedirect } from './services/login-redirect.service';
     RouterModule.forRoot([
       { path: '', component: MainComponent, canActivate: [EnsureAuthenticated] },
       { path: 'login', component: LoginComponent, canActivate: [LoginRedirect] },
+      { path: 'login/:token', component: LoginComponent },
       { path: 'register', component: RegisterComponent, canActivate: [LoginRedirect] }
     ])
   ],
