@@ -12,7 +12,7 @@ import {
   MatToolbarModule,
   MatButtonModule,
   MatFormFieldModule,
-  MatInputModule
+  MatInputModule,
 } from '@angular/material';
 
 // Component Imports
@@ -23,6 +23,7 @@ import { MainComponent } from './components/main/main.component'
 
 // Service Imports
 import { AuthService } from './services/auth.service';
+import { ApiService } from './services/api.service';
 import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
 
@@ -54,6 +55,7 @@ import { LoginRedirect } from './services/login-redirect.service';
   ],
   providers: [
     AuthService,
+    ApiService,
     EnsureAuthenticated,
     LoginRedirect
   ],
