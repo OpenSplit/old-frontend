@@ -3,5 +3,8 @@
   <mat-form-field class="example-full-width">
     <input matInput type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
   </mat-form-field>
+  <br>
+  <button mat-raised-button color="primary" type="submit">Register</button>
+  <mat-hint align="end">{{status}}</mat-hint>
 </form>
 </div>

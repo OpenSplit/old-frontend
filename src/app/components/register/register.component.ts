@@ -8,15 +8,19 @@ import { User } from '../../models/user';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-  user: User = new User();
+  user: User = new User()
+  status: String
+
   constructor(private auth: AuthService) {}
+
   onRegister(): void {
     this.auth.register(this.user)
     .then((user) => {
-      console.log(user.json());
+      console.log(user.json())
+      this.status = "Account created."
     })
     .catch((err) => {
-      console.log(err);
+      console.log(err)
     });
   }
 }

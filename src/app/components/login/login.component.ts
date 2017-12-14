@@ -10,6 +10,7 @@ import { User } from '../../models/user'
 })
 export class LoginComponent {
   user: User = new User()
+  status: String
   token: String = ""
 
   constructor(private auth: AuthService) { }
@@ -18,9 +19,11 @@ export class LoginComponent {
     this.auth.login(this.user)
     .then((user) => {
       console.log(user.json());
+      this.status = "Mail send, check your email for instructions."
     })
     .catch((err) => {
       console.log(err);
+      this.status = "Some error occured!"
     });
   }
 

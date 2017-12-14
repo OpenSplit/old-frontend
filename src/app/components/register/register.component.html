@@ -1,7 +1,14 @@
 <div class="centered-div">
-<form (ngSubmit)="onRegister()" novalidate class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
-  </mat-form-field>
-</form>
+  <form (ngSubmit)="onRegister()" novalidate>
+    <mat-form-field>
+      <input matInput placeholder="Mail" [(ngModel)]="user.email" name="email" required>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <input matInput placeholder="Nickname" [(ngModel)]="user.name" name="name" required>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary" type="submit">Register</button>
+    <mat-hint align="end">{{status}}</mat-hint>
+  </form>
 </div>
