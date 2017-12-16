@@ -13,6 +13,8 @@ import {
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
+  MatGridListModule,
+  MatListModule
 } from '@angular/material';
 
 // Component Imports
@@ -46,6 +48,8 @@ import { LoginRedirect } from './services/login-redirect.service';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatGridListModule,
+    MatListModule,
     RouterModule.forRoot([
       { path: '', component: MainComponent, canActivate: [EnsureAuthenticated] },
       { path: 'login', component: LoginComponent, canActivate: [LoginRedirect] },

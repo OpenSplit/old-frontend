@@ -5,3 +5,8 @@
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
+
+mat-sidenav {
+  width: 25vw;
+  height: 80vh;
+}
