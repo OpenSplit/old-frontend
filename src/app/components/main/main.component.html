@@ -1,5 +1,5 @@
-<mat-sidenav-container>
-  <mat-sidenav mode="side" opened="true">
+<!---<mat-sidenav-container fxFlex>
+  <mat-sidenav mode="side" align="end" opened class="mat-elevation-z6">
     {{ user.name }}<br>
     {{ user.email }}<br>
     <h1>Groups</h1>
@@ -10,4 +10,22 @@
     </ul>
   </mat-sidenav>
   <mat-sidenav-content>Main content</mat-sidenav-content>
-</mat-sidenav-container>
+</mat-sidenav-container>--->
+
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
+    {{ user.name }}<br>
+    {{ user.email }}<br>
+    <h1>Groups</h1>
+    <ul>
+      <li *ngFor="let group of user.groups">
+          {{ group }}
+      </li>
+    </ul>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    CONTENT
+  </div>
+
+</mat-drawer-container>

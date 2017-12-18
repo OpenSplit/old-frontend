@@ -6,7 +6,18 @@
   transform: translate(-50%, -50%);
 }
 
-mat-sidenav {
-  width: 25vw;
-  height: 80vh;
+.example-container {
+  height: 90vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.example-sidenav-content {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-sidenav {
+  padding: 20px;
 }

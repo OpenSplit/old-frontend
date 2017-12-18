@@ -4,13 +4,3 @@
 body {
     background: url(assets/images/background.jpg) center top no-repeat;
 }
-
-.form-control {
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-}
-
-.form-control > * {
-  width: 100%;
-}
