@@ -1,17 +1,3 @@
-<!---<mat-sidenav-container fxFlex>
-  <mat-sidenav mode="side" align="end" opened class="mat-elevation-z6">
-    {{ user.name }}<br>
-    {{ user.email }}<br>
-    <h1>Groups</h1>
-    <ul>
-      <li *ngFor="let group of user.groups">
-          {{ group }}
-      </li>
-    </ul>
-  </mat-sidenav>
-  <mat-sidenav-content>Main content</mat-sidenav-content>
-</mat-sidenav-container>--->
-
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="example-sidenav" mode="side" opened>
     {{ user.name }}<br>
@@ -25,7 +11,24 @@
   </mat-drawer>
 
   <div class="example-sidenav-content">
-    CONTENT
+      <h1>Groups</h1>
+      <ul>
+        <li *ngFor="let group of this.groups">
+          <button (click)="joinGroup(group.name)" mat-raised-button color="primary">
+            {{ group.name }}
+          </button>
+        </li>
+      </ul>
+
+      <form (ngSubmit)="addGroup()" novalidate>
+        <mat-form-field>
+          <input matInput placeholder="Group" [(ngModel)]="newGroup.name" name="name" required>
+        </mat-form-field>
+        <br>
+        <br>
+        <button mat-raised-button color="primary" type="submit">Add Group</button>
+        <mat-hint align="end">{{status}}</mat-hint>
+      </form>
   </div>
 
 </mat-drawer-container>

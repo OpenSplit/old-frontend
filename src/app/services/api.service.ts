@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { User } from '../models/user';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -17,5 +16,20 @@ export class ApiService {
   getUserInfo(): Promise<any> {
     let url: string = `${this.BASE_URL}/user`;
     return this.http.get(url, {headers: this.headers}).toPromise();
+  }
+
+  getGroups(): Promise<any> {
+    let url: string = `${this.BASE_URL}/group`;
+    return this.http.get(url, {headers: this.headers}).toPromise();
+  }
+
+  addGroup(group): Promise<any> {
+    let url: string = `${this.BASE_URL}/group`;
+    return this.http.post(url, group, {headers: this.headers}).toPromise();
+  }
+
+  joinGroup(name): Promise<any> {
+    let url: string = `${this.BASE_URL}/group/` + name;
+    return this.http.post(url, null, {headers: this.headers}).toPromise();
   }
 }
