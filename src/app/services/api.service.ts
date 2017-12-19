@@ -28,8 +28,8 @@ export class ApiService {
     return this.http.post(url, group, {headers: this.headers}).toPromise();
   }
 
-  joinGroup(name): Promise<any> {
-    let url: string = `${this.BASE_URL}/group/` + name;
+  joinGroup(id): Promise<any> {
+    let url: string = `${this.BASE_URL}/group/` + id;
     return this.http.post(url, null, {headers: this.headers}).toPromise();
   }
 }

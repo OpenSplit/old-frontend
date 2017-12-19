@@ -21,3 +21,7 @@
 .example-sidenav {
   padding: 20px;
 }
+
+.mat-list {
+  cursor: pointer;
+}

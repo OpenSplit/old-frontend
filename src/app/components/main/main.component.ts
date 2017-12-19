@@ -19,6 +19,10 @@ export class MainComponent implements OnInit {
 
   constructor(private api: ApiService) {}
 
+  selectGroup(group): void {
+    console.log(group)
+  }
+
   updateUserInfo(): void {
     this.api.getUserInfo().then((user) => {
       this.user = user.json()
@@ -29,6 +33,7 @@ export class MainComponent implements OnInit {
 
   getGroups(): void {
     this.api.getGroups().then((result) => {
+      console.log(result.json())
       this.groups = result.json()
     }).catch((err) => { console.log(err) })
   }
@@ -43,8 +48,8 @@ export class MainComponent implements OnInit {
     });
   }
 
-  joinGroup(groupName): void {
-    this.api.joinGroup(groupName).then((result) => {
+  joinGroup(id): void {
+    this.api.joinGroup(id).then((result) => {
       this.updateUserInfo()
     }).catch((err) => { console.log(err) })
   }

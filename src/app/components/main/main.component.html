@@ -3,6 +3,7 @@
     {{ user.name }}<br>
     {{ user.email }}<br>
     <h1>Groups <button mat-mini-fab (click)="groupFormVisible = !groupFormVisible">+</button></h1>
+
     <form (ngSubmit)="addGroup()" novalidate *ngIf="groupFormVisible">
       <mat-form-field>
         <input matInput placeholder="Group" [(ngModel)]="newGroup.name" name="name" required>
@@ -10,9 +11,10 @@
       <button mat-raised-button color="primary" type="submit">Add Group</button>
       <mat-hint align="end">{{status}}</mat-hint>
     </form>
+
     <mat-list>
       <mat-divider *ngFor="let group of user.groups">
-        <mat-list-item>
+        <mat-list-item (click)="selectGroup(group)" select>
             {{ group }}
         </mat-list-item>
       </mat-divider><mat-divider></mat-divider>
@@ -23,7 +25,7 @@
       <h1>Groups</h1>
       <ul>
         <li *ngFor="let group of this.groups">
-          <button (click)="joinGroup(group.name)" mat-raised-button color="primary">
+          <button (click)="joinGroup(group.id)" mat-raised-button color="primary">
             {{ group.name }}
           </button>
         </li>
