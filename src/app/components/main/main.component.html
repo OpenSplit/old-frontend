@@ -2,12 +2,21 @@
   <mat-drawer #drawer class="example-sidenav" mode="side" opened>
     {{ user.name }}<br>
     {{ user.email }}<br>
-    <h1>Groups</h1>
-    <ul>
-      <li *ngFor="let group of user.groups">
-          {{ group }}
-      </li>
-    </ul>
+    <h1>Groups <button mat-mini-fab (click)="groupFormVisible = !groupFormVisible">+</button></h1>
+    <form (ngSubmit)="addGroup()" novalidate *ngIf="groupFormVisible">
+      <mat-form-field>
+        <input matInput placeholder="Group" [(ngModel)]="newGroup.name" name="name" required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Add Group</button>
+      <mat-hint align="end">{{status}}</mat-hint>
+    </form>
+    <mat-list>
+      <mat-divider *ngFor="let group of user.groups">
+        <mat-list-item>
+            {{ group }}
+        </mat-list-item>
+      </mat-divider><mat-divider></mat-divider>
+    </mat-list>
   </mat-drawer>
 
   <div class="example-sidenav-content">
@@ -20,15 +29,7 @@
         </li>
       </ul>
 
-      <form (ngSubmit)="addGroup()" novalidate>
-        <mat-form-field>
-          <input matInput placeholder="Group" [(ngModel)]="newGroup.name" name="name" required>
-        </mat-form-field>
-        <br>
-        <br>
-        <button mat-raised-button color="primary" type="submit">Add Group</button>
-        <mat-hint align="end">{{status}}</mat-hint>
-      </form>
+
   </div>
 
 </mat-drawer-container>

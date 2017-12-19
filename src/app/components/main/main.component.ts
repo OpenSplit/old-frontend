@@ -10,10 +10,12 @@ import { Group } from '../../models/group'
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  displayedColumns = ['Groups'];
   user: User = new User()
-  groups: Group[]
   newGroup: Group = new Group()
+  groups: Group[]
   status: String
+  groupFormVisible = false
 
   constructor(private api: ApiService) {}
 
@@ -31,7 +33,7 @@ export class MainComponent implements OnInit {
       console.log(result.json())
       this.groups = result.json()
     })
-    .catch((err => {
+    .catch((err) => {
       console.log(err)
     })
   }
@@ -40,7 +42,7 @@ export class MainComponent implements OnInit {
     this.api.addGroup(this.newGroup)
     .then((result) => {
       console.log(result.json())
-      this.status = "Group added"
+      this.status = 'Group added'
       this.getGroups()
     })
     .catch((err) => {
@@ -54,7 +56,7 @@ export class MainComponent implements OnInit {
     .then((result) => {
       this.updateUserInfo()
     })
-    .catch((err => {
+    .catch((err) => {
       console.log(err)
     })
   }

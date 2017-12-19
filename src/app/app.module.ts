@@ -14,7 +14,7 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatGridListModule,
-  MatListModule
+  MatListModule,
 } from '@angular/material';
 
 // Component Imports
