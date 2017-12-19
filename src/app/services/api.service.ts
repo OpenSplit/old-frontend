@@ -23,6 +23,11 @@ export class ApiService {
     return this.http.get(url, {headers: this.headers}).toPromise();
   }
 
+  getGroupInfo(id): Promise<any> {
+    let url: string = `${this.BASE_URL}/group/` + id;
+    return this.http.get(url, {headers: this.headers}).toPromise();
+  }
+
   addGroup(group): Promise<any> {
     let url: string = `${this.BASE_URL}/group`;
     return this.http.post(url, group, {headers: this.headers}).toPromise();

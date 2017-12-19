@@ -19,9 +19,15 @@
 }
 
 .example-sidenav {
-  padding: 20px;
+  min-width: 20vw;
 }
 
 .mat-list {
   cursor: pointer;
+}
+
+#userHeader {
+  background-color: #ff4081;
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.87);
 }

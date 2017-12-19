@@ -15,20 +15,22 @@ export class MainComponent implements OnInit {
   newGroup: Group = new Group()
   groups: Group[]
   status: String
+  groupInfo: Object[]
   groupFormVisible = false
 
   constructor(private api: ApiService) {}
 
-  selectGroup(group): void {
-    console.log(group)
+  selectGroup(id): void {
+    this.api.getGroupInfo(id).then((result) => {
+      console.log(result.json())
+      this.groupInfo = result.json()
+    }).catch((err) => { console.log(err) })
   }
 
   updateUserInfo(): void {
     this.api.getUserInfo().then((user) => {
       this.user = user.json()
-    }).catch((err) => {
-      console.log(err)
-    })
+    }).catch((err) => { console.log(err) })
   }
 
   getGroups(): void {
@@ -42,6 +44,7 @@ export class MainComponent implements OnInit {
     this.api.addGroup(this.newGroup).then((result) => {
       this.status = 'Group added'
       this.getGroups()
+      this.updateUserInfo()
     }).catch((err) => {
       console.log(err)
       this.status = err
@@ -55,7 +58,7 @@ export class MainComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.updateUserInfo();
+    this.updateUserInfo()
     this.getGroups()
   }
 }
