@@ -8,12 +8,9 @@ import { RouterModule } from '@angular/router';
 
 // Material Design Imports
 import {
-  MatSidenavModule,
-  MatToolbarModule,
   MatButtonModule,
   MatFormFieldModule,
   MatInputModule,
-  MatGridListModule,
   MatListModule,
 } from '@angular/material';
 
@@ -43,12 +40,9 @@ import { LoginRedirect } from './services/login-redirect.service';
     BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
-    MatSidenavModule,
-    MatToolbarModule,
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule,
     MatListModule,
     RouterModule.forRoot([
       { path: '', component: MainComponent, canActivate: [EnsureAuthenticated] },

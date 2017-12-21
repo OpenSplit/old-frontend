@@ -1,6 +1,6 @@
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side" opened>
-    <div id="userHeader" class="mat-elevation-z5">{{ user.name }}</div>
+<div class="row">
+  <div class="col-md-3">
+    <div id="userHeader">{{ user.name }}</div>
     <mat-list>
       <mat-divider *ngFor="let group of user.groups">
         <mat-list-item (click)="selectGroup(group.id)" select>
@@ -17,19 +17,18 @@
       <button mat-raised-button color="primary" type="submit">Add Group</button>
       <mat-hint align="end">{{status}}</mat-hint>
     </form>
-  </mat-drawer>
-
-  <div class="example-sidenav-content">
-      <h2 *ngIf="groupInfo">{{ groupInfo.name }}  | {{ groupInfo.id }}  | {{ groupInfo.member }}</h2>
-      <ul>
-        <li *ngFor="let group of this.groups">
-          <button (click)="joinGroup(group.id)" mat-raised-button color="primary">
-            {{ group.name }}
-          </button>
-        </li>
-      </ul>
-
-
   </div>
 
-</mat-drawer-container>
+  <div class="col-md-9">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <span *ngIf="groupInfo" class="navbar-brand">{{groupInfo.name}} | {{ groupInfo.id }}</span>
+      </div>
+    </nav>
+    <ul *ngIf="groupInfo">
+      <li *ngFor="let member of this.groupInfo.member">
+          {{ member.name }} | {{ member.id}}
+      </li>
+    </ul>
+  </div>
+</div>
