@@ -19,7 +19,7 @@
     </form>
   </div>
 
-  <div class="col-md-9">
+  <div class="col-md-8">
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <span *ngIf="groupInfo" class="navbar-brand">{{groupInfo.name}} | {{ groupInfo.id }}</span>
@@ -31,4 +31,14 @@
       </li>
     </ul>
   </div>
+
+  <div class="col-md-1">
+    <ul>
+      <li *ngFor="let group of this.groups">
+        <button (click)="joinGroup(group.id)" mat-raised-button color="primary">
+          {{ group.name }}
+        </button>
+      </li>
+    </ul>
+</div>
 </div>
