@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { Router } from '@angular/router';
 import { User } from './models/user'
 
 @Component({
@@ -13,7 +14,7 @@ export class AppComponent implements OnInit {
   user: User = new User()
   isLoggedIn: boolean = false;
 
-  constructor(private auth: AuthService) {}
+  constructor(private auth: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     const session_key = localStorage.getItem('session_key')
@@ -29,5 +30,10 @@ export class AppComponent implements OnInit {
         console.log(err)
       });
     }
+  }
+
+  logout(): void {
+    localStorage.removeItem('session_key')
+    this.router.navigateByUrl('/login');
   }
 }
