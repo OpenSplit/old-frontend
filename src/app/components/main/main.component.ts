@@ -16,13 +16,25 @@ export class MainComponent implements OnInit {
   groups: Group[]
   status: String
   groupInfo: Object[]
+  idSelectedGroup: Integer
+  idSelectedMembers: Integer[] = []
   groupFormVisible = false
 
   constructor(private api: ApiService) {}
 
+  selectExpenseMember(id): void {
+    const index: Integer = this.idSelectedMembers.indexOf(id)
+    if(index == -1) {
+      this.idSelectedMembers.push(id)
+    } else {
+      this.idSelectedMembers.splice(index, 1);
+    }
+    console.log(this.idSelectedMembers)
+  }
+
   selectGroup(id): void {
     this.api.getGroupInfo(id).then((result) => {
-      console.log(result.json())
+      this.idSelectedGroup = id;
       this.groupInfo = result.json()
     }).catch((err) => { console.log(err) })
   }

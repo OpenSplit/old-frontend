@@ -24,3 +24,11 @@
 .one {
   background-image: url('http://placehold.it/50x50');
 }
+
+.selectable {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #3f51b5;
+}

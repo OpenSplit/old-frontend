@@ -3,7 +3,7 @@
     <div id="userHeader"><div class="user one"></div>{{ user.name }}</div>
     <mat-list>
       <mat-divider *ngFor="let group of user.groups">
-        <mat-list-item (click)="selectGroup(group.id)" select>
+        <mat-list-item class="selectable" (click)="selectGroup(group.id)" [ngClass]="{selected: group.id === idSelectedGroup}">
             {{ group.name }}
         </mat-list-item>
       </mat-divider><mat-divider></mat-divider>
@@ -25,6 +25,13 @@
         <span *ngIf="groupInfo" class="navbar-brand">Group {{groupInfo.name}} with id {{ groupInfo.id }}</span>
       </div>
     </nav>
+    <mat-list *ngIf="groupInfo">
+      <mat-divider *ngFor="let member of this.groupInfo.member">
+        <mat-list-item class="selectable" (click)="selectExpenseMember(member.id)" [ngClass]="{selected: this.idSelectedMembers.indexOf(member.id) > -1}">
+            {{ member.name }}
+        </mat-list-item>
+      </mat-divider><mat-divider></mat-divider>
+    </mat-list>
     <ul *ngIf="groupInfo">
       <li *ngFor="let member of this.groupInfo.member">
           Member {{ member.name }} with id {{ member.id}}
