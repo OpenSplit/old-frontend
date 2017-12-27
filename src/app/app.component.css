@@ -4,10 +4,22 @@ body {
     font-family: Roboto, sans-serif;
 }
 
-.app{
+.app {
     height: 100vh;
 }
 
-.fill-remaining-space {
-  flex: 1 1 auto;
+.navbar {
+  background-color: #3f51b5;
+  margin-bottom: 0px;
+}
+
+.navbar-brand {
+  color: #ff4081;
+  font-weight: bold;
+}
+
+.nav > li > button {
+    position: relative;
+    display: block;
+    margin-top: 5px;
 }

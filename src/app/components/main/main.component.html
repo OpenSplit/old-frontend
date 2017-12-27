@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-3">
-    <div id="userHeader">{{ user.name }}</div>
+    <div id="userHeader"><div class="user one"></div>{{ user.name }}</div>
     <mat-list>
       <mat-divider *ngFor="let group of user.groups">
         <mat-list-item (click)="selectGroup(group.id)" select>
@@ -19,26 +19,16 @@
     </form>
   </div>
 
-  <div class="col-md-8">
-    <nav class="navbar navbar-default">
+  <div class="col-md-9">
+    <nav *ngIf="groupInfo" class="navbar">
       <div class="container-fluid">
-        <span *ngIf="groupInfo" class="navbar-brand">{{groupInfo.name}} | {{ groupInfo.id }}</span>
+        <span *ngIf="groupInfo" class="navbar-brand">Group {{groupInfo.name}} with id {{ groupInfo.id }}</span>
       </div>
     </nav>
     <ul *ngIf="groupInfo">
       <li *ngFor="let member of this.groupInfo.member">
-          {{ member.name }} | {{ member.id}}
+          Member {{ member.name }} with id {{ member.id}}
       </li>
     </ul>
   </div>
-
-  <div class="col-md-1">
-    <ul>
-      <li *ngFor="let group of this.groups">
-        <button (click)="joinGroup(group.id)" mat-raised-button color="primary">
-          {{ group.name }}
-        </button>
-      </li>
-    </ul>
-</div>
 </div>

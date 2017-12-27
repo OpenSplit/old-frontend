@@ -1,0 +1,26 @@
+.navbar {
+  background-color: #5262bc;
+  margin-bottom: 0px;
+}
+
+#userHeader {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  font-size: 30px;
+}
+
+.user {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+}
+
+.one {
+  background-image: url('http://placehold.it/50x50');
+}
