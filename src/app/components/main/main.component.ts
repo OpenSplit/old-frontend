@@ -36,7 +36,8 @@ export class MainComponent implements OnInit {
 
   selectGroup(id): void {
     this.api.getGroupInfo(id).then((result) => {
-      this.idSelectedGroup = id;
+      this.idSelectedGroup = id
+      this.idSelectedMembers = []
       this.groupInfo = result.json()
     }).catch((err) => { console.log(err) })
   }
