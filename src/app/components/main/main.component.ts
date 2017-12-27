@@ -3,6 +3,7 @@ import { ApiService } from '../../services/api.service';
 
 import { User } from '../../models/user'
 import { Group } from '../../models/group'
+import { Expense } from '../../models/expense'
 
 @Component({
   selector: 'main',
@@ -16,14 +17,15 @@ export class MainComponent implements OnInit {
   groups: Group[]
   status: String
   groupInfo: Object[]
-  idSelectedGroup: Integer
-  idSelectedMembers: Integer[] = []
+  expense: Expense = new Expense()
+  idSelectedGroup: number
+  idSelectedMembers: number[] = []
   groupFormVisible = false
 
   constructor(private api: ApiService) {}
 
   selectExpenseMember(id): void {
-    const index: Integer = this.idSelectedMembers.indexOf(id)
+    const index = this.idSelectedMembers.indexOf(id)
     if(index == -1) {
       this.idSelectedMembers.push(id)
     } else {
@@ -42,6 +44,7 @@ export class MainComponent implements OnInit {
   updateUserInfo(): void {
     this.api.getUserInfo().then((user) => {
       this.user = user.json()
+      console.log(this.user)
     }).catch((err) => { console.log(err) })
   }
 
@@ -67,6 +70,17 @@ export class MainComponent implements OnInit {
     this.api.joinGroup(id).then((result) => {
       this.updateUserInfo()
     }).catch((err) => { console.log(err) })
+  }
+
+  addExpense(): void {
+    this.expense.paid_by = this.user.id
+    this.expense.split_amongst = this.idSelectedMembers
+    this.expense.group_id = this.idSelectedGroup
+    this.api.addExpense(this.expense).then((result) => {
+      console.log("Expense Added")
+    }).catch((err) => {
+      console.log(err)
+    });
   }
 
   ngOnInit(): void {

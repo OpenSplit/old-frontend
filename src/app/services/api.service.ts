@@ -37,4 +37,9 @@ export class ApiService {
     let url: string = `${this.BASE_URL}/group/` + id;
     return this.http.post(url, null, {headers: this.headers}).toPromise();
   }
+
+  addExpense(expense): Promise<any> {
+    let url: string = `${this.BASE_URL}/expense`;
+    return this.http.post(url, expense, {headers: this.headers}).toPromise();
+  }
 }

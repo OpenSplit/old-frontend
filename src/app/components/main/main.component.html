@@ -33,9 +33,12 @@
           </mat-list-item>
         </mat-divider><mat-divider></mat-divider>
       </mat-list>
-      <form novalidate>
+      <form (ngSubmit)="addExpense()" novalidate>
         <mat-form-field>
-          <input matInput placeholder="Expenses" name="expenses" required>
+          <input matInput placeholder="Amount" [(ngModel)]="expense.amount" name="expenses" required>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="Description" [(ngModel)]="expense.description" name="description" required>
         </mat-form-field>
         <button mat-raised-button color="primary" type="submit">Add Expenses</button>
       </form>
