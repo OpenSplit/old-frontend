@@ -74,9 +74,9 @@ export class MainComponent implements OnInit {
   }
 
   addExpense(): void {
-    this.expense.paid_by = this.user.id
-    this.expense.split_amongst = this.idSelectedMembers
-    this.expense.group_id = this.idSelectedGroup
+    this.expense["paid_by"] = this.user["id"]
+    this.expense["split_amongst"] = this.idSelectedMembers
+    this.expense["group_id"] = this.idSelectedGroup
     this.api.addExpense(this.expense).then((result) => {
       console.log("Expense Added")
     }).catch((err) => {
