@@ -1,13 +1,15 @@
-<nav class="navbar mat-elevation-z6">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Opensplit</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">OpenSplit</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <ul class="nav navbar-nav navbar-right">
-      <li>
-        <button (click)="logout()" mat-raised-button color="warn">Logout</button>
-      </li>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
     </ul>
+      <button class="btn" type="submit">Logout</button>
   </div>
 </nav>
+
 
 <router-outlet></router-outlet>
