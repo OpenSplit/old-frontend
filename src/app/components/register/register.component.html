@@ -1,14 +1,8 @@
 <div class="centered-div">
   <form (ngSubmit)="onRegister()" novalidate>
-    <mat-form-field>
-      <input matInput placeholder="Mail" [(ngModel)]="user.email" name="email" required>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-      <input matInput placeholder="Nickname" [(ngModel)]="user.name" name="name" required>
-    </mat-form-field>
-    <br>
-    <button mat-raised-button color="primary" type="submit">Register</button>
-    <mat-hint align="end">{{status}}</mat-hint>
+      <input placeholder="Mail" [(ngModel)]="user.email" name="email" required>
+      <input placeholder="Nickname" [(ngModel)]="user.name" name="name" required>
+      <button type="submit">Register</button>
+      <span align="end">{{status}}</span>
   </form>
 </div>
