@@ -2,8 +2,9 @@
   <div class="col-3">
     <div id="userHeader"><div class="user avatar"></div>{{ user.name }}</div>
 
-    <ul>
-      <li *ngFor="let group of user.groups" class="selectable" (click)="selectGroup(group.id)" [ngClass]="{selected: group.id === idSelectedGroup}">
+    <ul class="list-group">
+      <li *ngFor="let group of user.groups" class="selectable list-group-item"
+          (click)="selectGroup(group.id)" [ngClass]="{selected: group.id === idSelectedGroup}">
           {{ group.name }}
       </li>
     </ul>
