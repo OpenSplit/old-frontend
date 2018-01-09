@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-3">
-    <div id="userHeader"><div class="user one"></div>{{ user.name }}</div>
+  <div class="col-3">
+    <div id="userHeader"><div class="user avatar"></div>{{ user.name }}</div>
 
     <ul>
       <li *ngFor="let group of user.groups" class="selectable" (click)="selectGroup(group.id)" [ngClass]="{selected: group.id === idSelectedGroup}">
@@ -8,34 +8,47 @@
       </li>
     </ul>
     <br>
-    <button (click)="groupFormVisible = !groupFormVisible">+</button>
+    <button (click)="groupFormVisible = !groupFormVisible">Create new group</button>
     <form (ngSubmit)="addGroup()" novalidate *ngIf="groupFormVisible">
         <input placeholder="Group" [(ngModel)]="newGroup.name" name="name" required>
-      <button type="submit">Add Group</button>
-      <span >{{status}}</span>
+      <button type="submit">Submit</button>
     </form>
   </div>
 
-  <div class="col-md-9" *ngIf="groupInfo">
-    <nav class="navbar">
-      <div class="container-fluid">
-        <span *ngIf="groupInfo" class="navbar-brand">Group {{groupInfo.name}} with id {{ groupInfo.id }}</span>
+  <div class="col" *ngIf="groupInfo" id="groupInfo">
+    <div class="row">
+      <div class="col">
+        <h2>{{groupInfo.name}}</h2>
       </div>
-    </nav>
-    <div class="col-md-3">
-      <ul>
-        <li *ngFor="let member of this.groupInfo.member" class="selectable"
-            (click)="selectExpenseMember(member.id)" [ngClass]="{selected: this.idSelectedMembers.indexOf(member.id) > -1}">
-            {{ member.name }}
-        </li>
-      </ul>
-      <form (ngSubmit)="addExpense()" novalidate>
-          <input placeholder="Amount" [(ngModel)]="expense.amount" name="expenses" required>
+    </div>
+    <div class="row">
+      <form class="form-inline" (ngSubmit)="addExpense()" id="expenseForm" novalidate>
+        <div class="form-group">
           <input placeholder="Description" [(ngModel)]="expense.description" name="description" required>
-          <button type="submit">Add Expenses</button>
+        </div>
+        <div class="form-group">
+          <div class="input-group-addon">€</div>
+          <input type="text" class="form-control" placeholder="Amount" size="5" [(ngModel)]="expense.amount" name="expenses" required>
+        </div>
+        <div class="form-group">
+          <select>
+            <option *ngFor="let member of this.groupInfo.member">
+                {{ member.name }}
+            </option>
+          </select>
+        </div>
+        <div class="form-group">
+          <select multiple class="form-control" >
+            <option *ngFor="let member of this.groupInfo.member" (click)="selectExpenseMember(member.id)" [ngClass]="{selected: this.idSelectedMembers.indexOf(member.id) > -1}" >
+                {{ member.name }}
+            </option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-success">Add</button>
       </form>
     </div>
-    <div class="col-md-6">
+    <div class="row">
+      <div class="col">
       <h3>Group Expenses</h3>
       <ul>
         <li *ngFor="let transaction of this.transactions">
@@ -43,5 +56,5 @@
         </li>
       </ul>
     </div>
-  </div>
+    </div>
 </div>

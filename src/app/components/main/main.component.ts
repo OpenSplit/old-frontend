@@ -66,7 +66,8 @@ export class MainComponent implements OnInit {
 
   addGroup(): void {
     this.api.addGroup(this.newGroup).then((result) => {
-      this.status = 'Group added'
+      this.groupFormVisible = false;
+      this.newGroup.name = "";
       this.getGroups()
       this.updateUserInfo()
     }).catch((err) => {
