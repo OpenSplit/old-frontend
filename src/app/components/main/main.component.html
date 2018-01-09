@@ -50,11 +50,23 @@
     <div class="row">
       <div class="col">
       <h3>Group Expenses</h3>
-      <ul>
-        <li *ngFor="let transaction of this.transactions">
-            {{ transaction.description }} - {{ transaction.amount }} €
-        </li>
-      </ul>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Amount</th>
+            <th>Split Amongst</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of this.transactions">
+              <td>{{ transaction.description }}</td>
+              <td>{{ transaction.amount }} €</td>
+              <td><a *ngFor="let member of this.transaction.split_amongst">{{ member.name }} </a></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     </div>
 </div>
