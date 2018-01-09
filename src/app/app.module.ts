@@ -6,14 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-// Material Design Imports
-import {
-  MatButtonModule,
-  MatFormFieldModule,
-  MatInputModule,
-  MatListModule,
-} from '@angular/material';
-
 // Component Imports
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
@@ -40,10 +32,6 @@ import { LoginRedirect } from './services/login-redirect.service';
     BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
-    MatButtonModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatListModule,
     RouterModule.forRoot([
       { path: '', component: MainComponent, canActivate: [EnsureAuthenticated] },
       { path: 'login', component: LoginComponent, canActivate: [LoginRedirect] },
