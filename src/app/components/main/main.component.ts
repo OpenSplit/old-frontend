@@ -4,6 +4,7 @@ import { ApiService } from '../../services/api.service';
 import { User } from '../../models/user'
 import { Group } from '../../models/group'
 import { Expense } from '../../models/expense'
+import { Transaction } from '../../models/transaction'
 
 @Component({
   selector: 'main',
@@ -18,7 +19,7 @@ export class MainComponent implements OnInit {
   status: String
   groupInfo: Object[]
   expense: Expense = new Expense()
-  transactions: Object[]
+  transactions: Transaction[]
   idSelectedGroup: number
   idSelectedMembers: number[] = []
   groupFormVisible = false
@@ -47,8 +48,7 @@ export class MainComponent implements OnInit {
 
   getTransactions(id): void {
     this.api.getGroupTransactions(id).then((result) => {
-      this.transactions = result.json()
-      console.log(this.transactions)
+      this.transactions = result.json()[0]
     }).catch((err) => { console.log(err) })
   }
 
@@ -67,7 +67,7 @@ export class MainComponent implements OnInit {
   addGroup(): void {
     this.api.addGroup(this.newGroup).then((result) => {
       this.groupFormVisible = false;
-      this.newGroup.name = "";
+      this.newGroup["name"] = "";
       this.getGroups()
       this.updateUserInfo()
     }).catch((err) => {
