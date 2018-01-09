@@ -39,19 +39,18 @@ export class MainComponent implements OnInit {
       this.idSelectedGroup = id
       this.idSelectedMembers = []
       this.groupInfo = result.json()
+      console.log(this.groupInfo)
     }).catch((err) => { console.log(err) })
   }
 
   updateUserInfo(): void {
     this.api.getUserInfo().then((user) => {
       this.user = user.json()
-      console.log(this.user)
     }).catch((err) => { console.log(err) })
   }
 
   getGroups(): void {
     this.api.getGroups().then((result) => {
-      console.log(result.json())
       this.groups = result.json()
     }).catch((err) => { console.log(err) })
   }
