@@ -18,6 +18,7 @@ export class MainComponent implements OnInit {
   status: String
   groupInfo: Object[]
   expense: Expense = new Expense()
+  transactions: Object[]
   idSelectedGroup: number
   idSelectedMembers: number[] = []
   groupFormVisible = false
@@ -39,7 +40,15 @@ export class MainComponent implements OnInit {
       this.idSelectedGroup = id
       this.idSelectedMembers = []
       this.groupInfo = result.json()
+      this.getTransactions(id)
       console.log(this.groupInfo)
+    }).catch((err) => { console.log(err) })
+  }
+
+  getTransactions(id): void {
+    this.api.getGroupTransactions(id).then((result) => {
+      this.transactions = result.json()
+      console.log(this.transactions)
     }).catch((err) => { console.log(err) })
   }
 
