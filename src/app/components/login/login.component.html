@@ -1,10 +1,7 @@
 <div class="centered-div">
 <form (ngSubmit)="onLogin()" novalidate class="example-form">
-  <mat-form-field class="example-full-width">
-    <input matInput type="text" class="form-control" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
-  </mat-form-field>
-  <br>
-  <button mat-raised-button color="primary" type="submit">Login</button>
-  <mat-hint align="end">{{status}}</mat-hint>
+  <input type="text" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
+  <button type="submit">Login</button>
+  <span align="end">{{status}}</span>
 </form>
 </div>

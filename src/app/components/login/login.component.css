@@ -5,3 +5,7 @@
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
 }
+
+body {
+    background: "assets/images/background.jpg" center top no-repeat;
+}
