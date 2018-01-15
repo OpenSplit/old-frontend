@@ -42,6 +42,18 @@
   width: 100%;
 }
 
+#expenseSelection {
+  padding: 1em;
+}
+
 #expenseForm > div {
   margin-left: 10px;
+}
+
+.list-header {
+  background-color: rgba(0,0,0,.05);
+}
+
+.seperate {
+  border-bottom: solid 1px black;
 }
