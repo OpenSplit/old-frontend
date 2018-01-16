@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://app.openspl.it/api',
+  apiUrl: 'https://app.openspl.it/api',
 };
