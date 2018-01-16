@@ -2,9 +2,11 @@ import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../environments/environment'
+
 @Injectable()
 export class ApiService {
-  private BASE_URL: string = 'http://localhost:5000';
+  private BASE_URL: string = environment.apiUrl;
   private session_key: String = localStorage.getItem('session_key')
   private headers: Headers = new Headers({
     'Content-Type': 'application/json',

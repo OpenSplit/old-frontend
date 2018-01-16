@@ -3,10 +3,11 @@ import { Headers, Http } from '@angular/http';
 import { User } from '../models/user';
 import 'rxjs/add/operator/toPromise';
 
+import { environment } from '../../environments/environment'
 
 @Injectable()
 export class AuthService {
-  private BASE_URL: string = 'http://localhost:5000';
+  private BASE_URL: string = environment.apiUrl;
   private headers: Headers = new Headers({'Content-Type': 'application/json'});
 
   constructor(private http: Http) {}
