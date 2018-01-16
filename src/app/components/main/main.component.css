@@ -57,3 +57,7 @@
 .seperate {
   border-bottom: solid 1px black;
 }
+
+.no-padding {
+  padding: 0;
+}

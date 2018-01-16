@@ -9,10 +9,15 @@
       </li>
     </ul>
     <br>
-    <button (click)="groupFormVisible = !groupFormVisible">Create new group</button>
+    <div>
+      <button class="btn btn-primary" (click)="groupFormVisible = !groupFormVisible">Create new group</button>
+    </div>
+    <br>
     <form (ngSubmit)="addGroup()" novalidate *ngIf="groupFormVisible">
-        <input placeholder="Group" [(ngModel)]="newGroup.name" name="name" required>
-      <button type="submit">Submit</button>
+      <div class="input-group">
+        <input class="form-control" placeholder="Group" [(ngModel)]="newGroup.name" name="name" required>
+        <div class="input-group-text no-padding"><button class="btn btn-success" type="submit">+</button></div>
+      </div>
     </form>
   </div>
 
@@ -20,7 +25,7 @@
     <div class="row">
       <div class="col">
         <h2>{{groupInfo.name}}</h2>
-        <button (click)="expenseFormVisible = !expenseFormVisible">Add expense</button>
+        <button class="btn btn-primary" (click)="expenseFormVisible = !expenseFormVisible">Add expense</button>
       </div>
     </div>
     <div class="row seperate" *ngIf="expenseFormVisible">
