@@ -1,11 +1,14 @@
 <div class="row">
-  <div class="col-3">
-    <div id="userHeader"><div class="user avatar"></div>{{ user['name'] }}</div>
+  <div class="col-3 userInfo">
+    <div id="userHeader">
+      <div class="user avatar"></div>
+      {{ user['name'] }}
+    </div>
 
     <ul class="list-group">
       <li *ngFor="let group of user['groups']" class="selectable list-group-item"
           (click)="selectGroup(group.id)" [ngClass]="{selected: group.id === idSelectedGroup}">
-          {{ group.name }}
+        {{ group.name }}
       </li>
     </ul>
     <br>
@@ -16,12 +19,14 @@
     <form (ngSubmit)="addGroup()" novalidate *ngIf="groupFormVisible">
       <div class="input-group">
         <input class="form-control" placeholder="Group" [(ngModel)]="newGroup.name" name="name" required>
-        <div class="input-group-text no-padding"><button class="btn btn-success" type="submit">+</button></div>
+        <div class="input-group-text no-padding">
+          <button class="btn btn-success" type="submit">+</button>
+        </div>
       </div>
     </form>
   </div>
 
-  <div class="col" *ngIf="groupInfo" id="groupInfo">
+  <div class="col groupInfo" *ngIf="groupInfo" id="groupInfo">
     <div class="row">
       <div class="col">
         <h2>{{groupInfo.name}}</h2>
@@ -32,56 +37,70 @@
       <form class="form col" (ngSubmit)="addExpense()" id="expenseForm" novalidate>
         <div class="form-group">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Description" [(ngModel)]="expense['description']" name="description" required>
+            <input type="text" class="form-control" placeholder="Description" [(ngModel)]="expense['description']"
+                   name="description" required>
           </div>
           <br>
           <div class="input-group">
             <div class="input-group-text">€</div>
-            <input type="text" class="form-control" placeholder="Amount" size="5" [(ngModel)]="expense['amount']" name="expenses" required>
+            <input type="text" class="form-control" placeholder="Amount" size="5" [(ngModel)]="expense['amount']"
+                   name="expenses" required>
           </div>
           <br>
           <div class="input-group">
             <div class="input-group-text">Paid By</div>
             <select class="custom-select">
               <option *ngFor="let member of this.groupInfo.member">
-                  {{ member.name }}
+                {{ member.name }}
               </option>
             </select>
           </div>
           <br>
-        <button type="submit" class="btn btn-success">Submit</button>
+          <button type="submit" class="btn btn-success">Submit</button>
         </div>
       </form>
       <div class="col" id="expenseSelection">
         <ul class="list-group">
           <li class="list-group-item list-header"><b>Split amongst</b></li>
           <li class="list-group-item selectable" *ngFor="let member of this.groupInfo.member"
-              (click)="selectExpenseMember(member.id)" [ngClass]="{selected: this.idSelectedMembers.indexOf(member.id) > -1}" >
-              {{ member.name }}
+              (click)="selectExpenseMember(member.id)"
+              [ngClass]="{selected: this.idSelectedMembers.indexOf(member.id) > -1}">
+            {{ member.name }}
           </li>
         </ul>
       </div>
     </div>
     <div class="row">
       <div class="col">
-      <h3>Group Expenses</h3>
+        <h3>Group Expenses</h3>
 
-      <table class="table table-striped">
-        <thead>
+        <table class="table table-striped">
+          <thead>
           <tr>
             <th scope="col">Description</th>
             <th scope="col">Amount</th>
             <th>Split Amongst</th>
           </tr>
-        </thead>
-        <tbody>
+          </thead>
+          <tbody>
           <tr *ngFor="let transaction of this.transactions">
-              <td>{{ transaction.description }}</td>
-              <td>{{ transaction.amount }} €</td>
-              <td><a *ngFor="let member of this.transaction.split_amongst">{{ member.name }} </a></td>
+            <td>{{ transaction.description }}</td>
+            <td>{{ transaction.amount }} €</td>
+            <td><a *ngFor="let member of this.transaction.split_amongst">{{ member.name }} </a></td>
           </tr>
-        </tbody>
-      </table>
+          </tbody>
+        </table>
+      </div>
     </div>
-    </div>
+
+  </div>
+
+  <div class="col-2 groupInfo" *ngIf="groupInfo">
+    <h2>Member</h2>
+    <ul class="list-group">
+      <li *ngFor="let member of this.groupInfo.member" class="list-group-item">
+        {{ member.name }}
+      </li>
+    </ul>
+  </div>
 </div>
