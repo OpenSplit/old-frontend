@@ -41,6 +41,15 @@ export class MainComponent implements OnInit {
       this.idSelectedGroup = id
       this.idSelectedMembers = []
       this.groupInfo = result.json()
+      // Sort member by name
+      this.groupInfo['member'].sort(function(a,b) {
+        var nameA=a.name.toLowerCase(), nameB=b.name.toLowerCase()
+        if (nameA < nameB) //sort string ascending
+            return -1
+        if (nameA > nameB)
+            return 1
+        return 0 //default return value (no sorting)
+      })
       this.getTransactions(id)
       console.log(this.groupInfo)
     }).catch((err) => { console.log(err) })

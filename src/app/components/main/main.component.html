@@ -27,12 +27,8 @@
   </div>
 
   <div class="col groupInfo" *ngIf="groupInfo" id="groupInfo">
-    <div class="row">
-      <div class="col">
-        <h2>{{groupInfo.name}}</h2>
-        <button class="btn btn-primary" (click)="expenseFormVisible = !expenseFormVisible">Add expense</button>
-      </div>
-    </div>
+    <h2>{{groupInfo.name}}</h2>
+    <button class="btn btn-primary" (click)="expenseFormVisible = !expenseFormVisible">Add expense</button>
     <div class="row seperate" *ngIf="expenseFormVisible">
       <form class="form col" (ngSubmit)="addExpense()" id="expenseForm" novalidate>
         <div class="form-group">
@@ -99,7 +95,7 @@
     <h2>Member</h2>
     <ul class="list-group">
       <li *ngFor="let member of this.groupInfo.member" class="list-group-item">
-        {{ member.name }}
+        {{ member.name }} <span class="badge badge-pill badge-success">20€</span><span class="badge badge-pill badge-danger">-20€</span>
       </li>
     </ul>
   </div>
