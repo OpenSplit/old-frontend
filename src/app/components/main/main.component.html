@@ -95,7 +95,9 @@
     <h2>Member</h2>
     <ul class="list-group">
       <li *ngFor="let member of this.groupInfo.member" class="list-group-item">
-        {{ member.name }} <span class="badge badge-pill badge-success">20€</span><span class="badge badge-pill badge-danger">-20€</span>
+        {{ member.name }}
+        <span *ngIf="member.debts.total >= 0" class="badge badge-pill badge-success">{{ member.debts.total }}</span>
+        <span *ngIf="member.debts.total < 0" class="badge badge-pill badge-danger">{{ member.debts.total }}</span>
       </li>
     </ul>
   </div>
