@@ -59,17 +59,10 @@ export class MainComponent implements OnInit {
     }).catch((err) => { console.log(err) })
   }
 
-  getGroups(): void {
-    this.api.getGroups().then((result) => {
-      this.groups = result.json()
-    }).catch((err) => { console.log(err) })
-  }
-
   addGroup(): void {
     this.api.addGroup(this.newGroup).then((result) => {
       this.groupFormVisible = false;
       this.newGroup["name"] = "";
-      this.getGroups()
       this.updateUserInfo()
     }).catch((err) => {
       console.log(err)
@@ -97,6 +90,5 @@ export class MainComponent implements OnInit {
 
   ngOnInit(): void {
     this.updateUserInfo()
-    this.getGroups()
   }
 }

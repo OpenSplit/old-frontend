@@ -1,9 +1,9 @@
 <div class="row">
   <div class="col-3">
-    <div id="userHeader"><div class="user avatar"></div>{{ user.name }}</div>
+    <div id="userHeader"><div class="user avatar"></div>{{ user['name'] }}</div>
 
     <ul class="list-group">
-      <li *ngFor="let group of user.groups" class="selectable list-group-item"
+      <li *ngFor="let group of user['groups']" class="selectable list-group-item"
           (click)="selectGroup(group.id)" [ngClass]="{selected: group.id === idSelectedGroup}">
           {{ group.name }}
       </li>
@@ -32,12 +32,12 @@
       <form class="form col" (ngSubmit)="addExpense()" id="expenseForm" novalidate>
         <div class="form-group">
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Description" [(ngModel)]="expense.description" name="description" required>
+            <input type="text" class="form-control" placeholder="Description" [(ngModel)]="expense['description']" name="description" required>
           </div>
           <br>
           <div class="input-group">
             <div class="input-group-text">€</div>
-            <input type="text" class="form-control" placeholder="Amount" size="5" [(ngModel)]="expense.amount" name="expenses" required>
+            <input type="text" class="form-control" placeholder="Amount" size="5" [(ngModel)]="expense['amount']" name="expenses" required>
           </div>
           <br>
           <div class="input-group">

@@ -1,6 +1,6 @@
 <div class="centered-div">
 <form (ngSubmit)="onLogin()" novalidate class="example-form">
-  <input type="text" id="email" placeholder="enter email" [(ngModel)]="user.email" name="email" required>
+  <input type="text" id="email" placeholder="enter email" [(ngModel)]="user['email']" name="email" required>
   <button type="submit">Login</button>
   <span align="end">{{status}}</span>
 </form>
