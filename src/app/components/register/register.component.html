@@ -1,7 +1,7 @@
 <div class="centered-div">
   <form (ngSubmit)="onRegister()" novalidate>
       <input placeholder="Mail" [(ngModel)]="user['email']" name="email" required>
-      <input placeholder="Nickname" [(ngModel)]="user['email']" name="name" required>
+      <input placeholder="Nickname" [(ngModel)]="user['name']" name="name" required>
       <button type="submit">Register</button>
       <span align="end">{{status}}</span>
   </form>
