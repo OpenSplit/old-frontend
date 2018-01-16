@@ -33,7 +33,6 @@ export class MainComponent implements OnInit {
     } else {
       this.idSelectedMembers.splice(index, 1);
     }
-    console.log(this.idSelectedMembers)
   }
 
   selectGroup(id): void {
@@ -58,7 +57,6 @@ export class MainComponent implements OnInit {
   getTransactions(id): void {
     this.api.getGroupTransactions(id).then((result) => {
       this.transactions = result.json()[0]
-      console.log(this.transactions)
     }).catch((err) => { console.log(err) })
   }
 
