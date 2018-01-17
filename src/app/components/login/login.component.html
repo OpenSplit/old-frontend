@@ -1,7 +1,10 @@
 <div class="centered-div">
-<form (ngSubmit)="onLogin()" novalidate class="example-form">
-  <input type="text" id="email" placeholder="enter email" [(ngModel)]="user['email']" name="email" required>
-  <button type="submit">Login</button>
-  <span align="end">{{status}}</span>
+<form (ngSubmit)="onLogin()" novalidate class="form-inline">
+  <div class="form-group">
+    <input class="form-control" type="text" id="email" placeholder="enter email" [(ngModel)]="user['email']" name="email" required>
+    <button class="btn btn-success" type="submit">Login</button>
+    <span align="end"> {{status}}</span>
+  </div>
 </form>
+<small class="form-text text-muted">No account? <a href="/register">Register now.</a></small>
 </div>
