@@ -6,12 +6,15 @@ import { Group } from '../../models/group'
 import { Expense } from '../../models/expense'
 import { Transaction } from '../../models/transaction'
 
+import { environment } from '../../../environments/environment'
+
 @Component({
   selector: 'main',
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
+  private BASE_URL: string = environment.apiUrl;
   displayedColumns = ['Groups'];
   user: User = new User()
   newGroup: Group = new Group()
