@@ -94,7 +94,7 @@ export class MainComponent implements OnInit {
     this.expense["group_id"] = this.idSelectedGroup
     this.api.addExpense(this.expense).then((result) => {
       this.getTransactions(this.idSelectedGroup)
-      console.log("Expense Added")
+      this.selectGroup(this.idSelectedGroup)
     }).catch((err) => {
       console.log(err)
     });

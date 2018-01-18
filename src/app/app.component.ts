@@ -21,7 +21,6 @@ export class AppComponent implements OnInit {
     if (session_key) {
       this.auth.ensureAuthenticated(session_key)
       .then((user) => {
-        console.log(user.json())
         if (user.json().status === 'success') {
           this.isLoggedIn = true;
         }
@@ -35,5 +34,6 @@ export class AppComponent implements OnInit {
   logout(): void {
     localStorage.removeItem('session_key')
     this.router.navigateByUrl('/login');
+    this.isLoggedIn = false;
   }
 }
