@@ -24,6 +24,15 @@
         </div>
       </div>
     </form>
+    <br>
+    <form (ngSubmit)="joinGroup(groupToken)">
+      <div class="input-group">
+        <input class="form-control" placeholder="Insert Group Token" [(ngModel)]="groupToken" name="name" required>
+        <div class="input-group-text no-padding">
+          <button class="btn btn-success" type="submit">Join</button>
+        </div>
+      </div>
+    </form>
   </div>
 
   <div class="col groupInfo" *ngIf="groupInfo" id="groupInfo">

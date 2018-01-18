@@ -21,6 +21,7 @@ export class MainComponent implements OnInit {
   groups: Group[]
   status: String
   groupInfo: Object[]
+  groupToken: String
   expense: Expense = new Expense()
   transactions: Transaction[]
   idSelectedGroup: number
@@ -80,8 +81,8 @@ export class MainComponent implements OnInit {
     });
   }
 
-  joinGroup(id): void {
-    this.api.joinGroup(id).then((result) => {
+  joinGroup(token): void {
+    this.api.joinGroup(token).then((result) => {
       this.updateUserInfo()
     }).catch((err) => { console.log(err) })
   }
