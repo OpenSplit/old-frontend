@@ -13,7 +13,8 @@
     </ul>
     <br>
     <div>
-      <button class="btn btn-primary" (click)="groupFormVisible = !groupFormVisible">Create new group</button>
+      <button class="btn btn-primary" (click)="groupFormVisible = !groupFormVisible">Create group</button>
+      <button class="btn btn-primary" (click)="joinGroupFormVisible = !joinGroupFormVisible">Join group</button>
     </div>
     <br>
     <form (ngSubmit)="addGroup()" novalidate *ngIf="groupFormVisible">
@@ -25,7 +26,7 @@
       </div>
     </form>
     <br>
-    <form (ngSubmit)="joinGroup(groupToken)">
+    <form (ngSubmit)="joinGroup(groupToken)" *ngIf="joinGroupFormVisible">
       <div class="input-group">
         <input class="form-control" placeholder="Insert Group Token" [(ngModel)]="groupToken" name="name" required>
         <div class="input-group-text no-padding">

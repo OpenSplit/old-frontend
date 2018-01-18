@@ -27,6 +27,7 @@ export class MainComponent implements OnInit {
   idSelectedGroup: number
   idSelectedMembers: number[] = []
   groupFormVisible = false
+  joinGroupFormVisible = false
 
   constructor(private api: ApiService) {}
 
