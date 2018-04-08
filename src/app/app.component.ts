@@ -10,7 +10,7 @@ import { User } from './models/user'
 })
 
 export class AppComponent implements OnInit {
-  title = 'Opensplit';
+  title = 'OpenSplit';
   user: User = new User()
   isLoggedIn: boolean = false;
 
