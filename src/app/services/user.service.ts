@@ -56,7 +56,7 @@ export class UserService {
   deleteUser(): Observable<void> {
     return this.http.delete<User>(this.url, this.httpOptions)
       .pipe(
-        tap(user => console.log(`Deleted user account`)),
+        tap(_ => console.log(`Deleted user account`)),
         catchError(this.handleError('deleteUser', null))
       );
   }
