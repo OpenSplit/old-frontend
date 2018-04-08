@@ -17,6 +17,10 @@ import { ApiService } from './services/api.service';
 import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
 import { MaterialModule } from './material.module';
+import { UserService } from './services/user.service';
+import { GroupService } from './services/group.service';
+import { MessageService } from './services/message.service';
+import { TransactionService } from './services/transaction.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { MaterialModule } from './material.module';
     AuthService,
     ApiService,
     EnsureAuthenticated,
-    LoginRedirect
+    LoginRedirect,
+    UserService,
+    GroupService,
+    MessageService,
+    TransactionService
   ],
   bootstrap: [AppComponent]
 })
