@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { User } from './models/user'
 
 @Component({
@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
 
   logout(): void {
     localStorage.removeItem('session_key')
-    this.router.navigateByUrl('/login');
+    this.router.navigate(['/login']);
     this.isLoggedIn = false;
   }
 }

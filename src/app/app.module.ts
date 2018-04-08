@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,6 +16,7 @@ import { AuthService } from './services/auth.service';
 import { ApiService } from './services/api.service';
 import { EnsureAuthenticated } from './services/ensure-authenticated.service';
 import { LoginRedirect } from './services/login-redirect.service';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -29,9 +29,9 @@ import { LoginRedirect } from './services/login-redirect.service';
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
+    MaterialModule,
     RouterModule.forRoot([
       { path: '', component: MainComponent, canActivate: [EnsureAuthenticated] },
       { path: 'login', component: LoginComponent, canActivate: [LoginRedirect] },
