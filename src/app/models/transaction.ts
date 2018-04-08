@@ -1,3 +1,6 @@
 export class Transaction {
-  constructor(description?: string, amount?: string) {}
+  constructor(
+    public id?: number,
+    public description?: string,
+    public amount?: string) { }
 }
