@@ -7,7 +7,7 @@ import { of } from 'rxjs/observable/of';
 
 import { User } from '../models/user';
 
-import { environment } from '../../environments/environment'
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class UserService {
