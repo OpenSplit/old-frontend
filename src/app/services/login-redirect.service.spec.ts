@@ -1,11 +1,25 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { LoginRedirect } from './login-redirect.service';
+import { AuthService } from './auth.service';
+import { RouterTestingModule } from '@angular/router/testing';
+
+class mockAuthService {
+}
 
 describe('LoginRedirect', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [LoginRedirect]
+      imports: [
+        RouterTestingModule
+      ],
+      providers: [
+        LoginRedirect,
+        {
+          provide: AuthService,
+          useClass: mockAuthService
+        }
+      ],
     });
   });
 

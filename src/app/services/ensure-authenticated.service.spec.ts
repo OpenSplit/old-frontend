@@ -1,11 +1,24 @@
 import { TestBed, inject } from '@angular/core/testing';
 
 import { EnsureAuthenticated } from './ensure-authenticated.service';
+import { AuthService } from './auth.service';
+import { RouterTestingModule } from '@angular/router/testing';
+
+class mockAuthService { }
 
 describe('EnsureAuthenticated', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [EnsureAuthenticated]
+      imports: [
+        RouterTestingModule
+      ],
+      providers: [
+        EnsureAuthenticated,
+        {
+          provide: AuthService,
+          useClass: mockAuthService
+        }
+      ]
     });
   });
 
