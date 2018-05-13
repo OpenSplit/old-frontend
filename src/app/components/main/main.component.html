@@ -6,7 +6,7 @@
     </div>
 
     <ul class="list-group">
-      <li *ngFor="let group of user['groups']" class="selectable list-group-item"
+      <li *ngFor="let group of groups" class="selectable list-group-item"
           (click)="selectGroup(group.id)" [ngClass]="{selected: group.id === idSelectedGroup}">
         {{ group.name }}
       </li>
