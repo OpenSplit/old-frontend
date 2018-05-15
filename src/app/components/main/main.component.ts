@@ -69,6 +69,10 @@ export class MainComponent implements OnInit {
     this.api.getUserInfo().then((user) => {
       this.user = user.json()
     }).catch((err) => { console.log(err) })
+
+    this.api.getGroups().then((groups) => {
+      this.groups = groups.json()
+    }).catch((err) => { console.log(err) })
   }
 
   addGroup(): void {
@@ -91,8 +95,7 @@ export class MainComponent implements OnInit {
   addExpense(): void {
     this.expense["paid_by"] = this.user["id"]
     this.expense["split_amongst"] = this.idSelectedMembers
-    this.expense["group_id"] = this.idSelectedGroup
-    this.api.addExpense(this.expense).then((result) => {
+    this.api.addExpense(this.expense, this.idSelectedGroup).then((result) => {
       this.getTransactions(this.idSelectedGroup)
       this.selectGroup(this.idSelectedGroup)
     }).catch((err) => {
