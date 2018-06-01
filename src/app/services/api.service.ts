@@ -41,8 +41,8 @@ export class ApiService {
   }
 
   joinGroup(token): Promise<any> {
-    let url: string = `${this.BASE_URL}/groups/` + token;
-    return this.http.get(url, {headers: this.headers}).toPromise();
+    let url: string = `${this.BASE_URL}/groups/join/` + token;
+    return this.http.post(url, null, {headers: this.headers}).toPromise();
   }
 
   addExpense(expense, group_id): Promise<any> {
