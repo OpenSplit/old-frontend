@@ -110,6 +110,9 @@
         {{ member.name }}
         <span *ngIf="member.debts.total >= 0" class="badge badge-pill badge-success">{{ member.debts.total }}</span>
         <span *ngIf="member.debts.total < 0" class="badge badge-pill badge-danger">{{ member.debts.total }}</span>
+        <ul *ngFor="let debt of member.debts.owes">
+          <li>Owes {{ debt[0] }}: <span class="badge badge-pill badge-danger">{{ debt[1] }}</span></li>
+        </ul>
       </li>
     </ul>
   </div>

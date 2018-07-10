@@ -21,9 +21,7 @@ export class AppComponent implements OnInit {
     if (session_key) {
       this.auth.ensureAuthenticated(session_key)
       .then((user) => {
-        if (user.json().status === 'success') {
           this.isLoggedIn = true;
-        }
       })
       .catch((err) => {
         console.log(err)
